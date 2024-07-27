@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A tutorial on how to run the game OneShot on Windows XP">
+<meta name="author" content="Jevil">
+<title>How to run OneShot on Windows XP</title>
+<style>
+a:link {
+  color: hotpink;
+}
+a:visited {
+  color: hotpink;
+}
+a:hover {
+  color: hotpink;
+}
+a:active {
+  color: hotpink;
+}
+</style>
+<link href="../style.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+
+<h1>How to run OneShot on Windows XP</h1>
+<p>In this tutorial, I'll show you how to run OneShot on Windows XP</p>
+<strong>Note: The copy of OneShot I used had it's steam_api.dll file patched so it does not require Steam to run. You may also need to patch your copy.</strong>
+<br>
+<strong>Base OS: Windows XP SP3</strong>
+<h2>Getting oneshot.exe working</h2>
+<p>Firstly, you need to patch the main executeable file of the game, because if you try to run it normally, you will just get a "is not a valid Win32 application error</p>
+<img src="win32error.png">
+<br>
+To fix this, download Alky for Applications from 
+<a href="http://alkyforapplications.net/">here</a>
+ and install it. You do not need to bind it to a product key.
+<br>
+<p>After installing it, reboot your computer</p>
+<p>Now, go to the oneshot.exe file, right click on it and select "Patch and run Vista executeable..."</p>
+<p>After the patching is done, you should get a error saying that vcruntime140.dll is missing.</p>
+<img src="vcruntime140.png">
+<br>
+To fix this, just download and install Visual C++ Runtime 2015 from 
+<a href="https://www.microsoft.com/en-gb/download/details.aspx?id=48145">here</a>
+.
+<br>
+<p>If done correctly, you should get a "Failed to initialize Steamworks API" error. This is normal, and in fact a good sign as this means that oneshot.exe is now working</p>
+<img src="steamworks.png">
+<h2>Getting steamshim.exe working</h2>
+<p>To get steamshim.exe (the file that allows you to run OneShot) working, you firstly need to patch it in the same way as you did with oneshot.exe</p>
+<p>After patching, you will get an error saying that the entry point inet_ntop is missing in WS2_32.dll</p>
+<img src="ws2_32.png">
+<br>
+To fix this, download ws2_32.dll from 
+<a href="https://github.com/Skulltrail192/One-Core-API-Binaries/raw/master/Packages/x86/Base%20Installer/ws2_32.dll">here</a>
+(a part of One-Core-Api) and save it to the same folder as OneShot.
+<br>
+<p>If done correctly, you will get an error saying that ws2_base.dll is missing.</p>
+<img src="ws2_base.png">
+<br>
+To fix this, download xpws2_base.dll from 
+<a href="https://github.com/Skulltrail192/One-Core-API-Binaries/raw/master/Packages/x86/Base%20Installer/XPSP3/xpws2_base.dll">here</a>
+(a part of One-Core-Api) and save it to the same folder as OneShot, then rename it to ws2_base.dll
+<br>
+<p>After placing the two missing .dll files OneShot should run!</p>
+<img src="oneshot.png">
+<br>
+<strong>IMPORTANT: If fonts are missing, go into the Fonts folder inside the OneShot game folder, and copy all of the fonts to C:\Windows\Fonts</strong>
+<p>Note: you may get a Windows Firewall alert, you can safely press Keep Blocking</p>
+<img src="firewall.png">
+<h2>Getting _______.exe working</h2>
+<p>Now, to get the final file working, it may not seem important but it needs to work for the game to let you complete the last puzzle (also for one other thing at the end but I will not spoil)</p>
+<br>
+Firstly, download UPX from 
+<a href="https://github.com/upx/upx/releases/download/v3.96/upx-3.96-win32.zip">here</a>
+then put it on the Desktop, for example
+<br>
+<p>Then, copy _______.exe to the same place as UPX</p>
+<p>Now, you need to open a command prompt window and navigate to the same directory as UPX and _______.exe</p>
+<p>Then, type upx -d _______.exe as shown in the image below</p>
+<img src="upx.png">
+<br>
+After that, download two things: HxD Hex Editor from
+<a href="https://mh-nexus.de/downloads/HxDSetup.zip">here</a>
+and shellxp.dll from 
+<a href="https://github.com/tumagonx/XomPie/raw/master/shellxp.dll">here</a>
+(part of XomPie.)
+<br>
+<p>Install HxD and open the _______.exe file in it.</p>
+<p>Now, go to Search > Find in HxD and search for shell32</p>
+<img src="hxd.png">
+<br>
+<p>It will find an occurence of shell32, replace the 32 with XP (do not erase any characters, type over them instead</p>
+<p>If done correctly, it should look like this:</p>
+<img src="hxd2.png">
+<br>
+<p>Now, save the file.</p>
+<p>After this, put the shellxp.dll you downloaded and the modified _______.exe in the OneShot directory. Overwrite any files if asked.</p>
+<p>If everything is done correctly, the _______.exe file will run.</p>
+<img src="clover.png">
+<br>
+The puzzle that involves this file has rendering issues, but it's still possible to complete it. See the issues 
+<a href="render-issue.png">here</a>
+(image not embedded to prevent spoilers)
+</body>
+</html>

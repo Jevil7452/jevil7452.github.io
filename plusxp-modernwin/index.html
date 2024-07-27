@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Installing Plus! XP on 64-bit computers">
+<meta name="author" content="Jevil">
+<title>Installing Plus! XP on 64-bit computers</title>
+<style>
+a:link {
+  color: hotpink;
+}
+a:visited {
+  color: hotpink;
+}
+a:hover {
+  color: hotpink;
+}
+a:active {
+  color: hotpink;
+}
+</style>
+<link href="../style.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<h1>Installing Plus! XP on 64-bit computers</h1>
+<p>If you have ever tried to install Plus! for Windows XP on a modern, 64-bit computer, you've probably saw this error message:</p>
+<img src=error.png>
+<p>If you want to bypass this error message, and install it anyways, here's what you need to do:</p>
+Firstly, you need to download the Windows SDK ISO from 
+<a href="https://go.microsoft.com/fwlink/?linkid=2173746">here</a>
+<p>After you have downloaded it, open it, then navigate to the Installers folder, and run "Orca-x86_en-us.msi"</p>
+<p>This will install the Orca MSI editor, which you will need to use to modify the Plus! XP installer.</p>
+<p>Now, copy the Plus! XP CD contents to a directory on your computer (assuming you have a CD of it)</p>
+<p>After you have done so, find the file "Microsoft Plus! for Windows XP.msi", right click on it and select "Edit with Orca"</p>
+<p>After selecting this option, you will see a window like the one below:</p>
+<img src=orca.png>
+<p>On the left side, you need to locate the "Property" entry. After you click on it, you will see the screen below:</p>
+<img src=property.png>
+<p>Now, in the list, you need to locate "SIXTYFOURBIT" and change it from a "0" to a "1", like below:</p>
+<img src=sixtyfourbit.png>
+<p>Now, select File>Save</p>
+<p>You can now start the installer, and if you've done everything correctly, you will see it start like normal!</p>
+<img src=installer.png>
+<p>Now, you can proceed with the installation like usual. Note, that not all features might work correctly on new versions of Windows.</p>
+<p>If you get an error saying that Windows Installer stopped working, you can close it and the install will continue anyways.</p>
+<h1>What works?</h1>
+<p>Note: This is what happened on my system, results may vary on your system.</p>
+<h2>Plus! Voice Command for Windows Media Player</h2>
+<p>Doesn't work, gives this error</p>
+<img src=mpspeak.png>
+<h2>Plus! MP3 Audio Converter</h2>
+<p>Works fine</p>
+<h2>Plus! CD Label Maker</h2>
+<p>Works fine</p>
+<h2>Plus! Speaker Enhancement</h2>
+<p>It installed fine and was able to be enabled, but I didn't hear any difference.</p>
+<h2>Plus! Personal DJ</h2>
+<p>After clicking Play, it tried to open MPC-HC, which failed to play the file, although it created the playlist in Windows Media Player.</p>
+<h2>Microsoft Windows Media Player Skins</h2>
+<p>They all work fine</p>
+<h2>Plus! 3-D Visualizations</h2>
+<p>They all work fine</p>
+<h2>Games</h2>
+<p>They all work fine</p>
+<h2>Plus! Aquarium theme</h2>
+<p>Applies Windows XP's Luna theme metrics to Classic Theme</p>
+<img src=aquarium.png>
+<h2>Plus! Space theme</h2>
+<p>Applies Windows Basic</p>
+<h2>Plus! Nature theme</h2>
+<p>Applies Windows Basic</p>
+<h3>If applied from the Personalization control panel page</h3>
+<p>Applies a glitched version of Windows Basic, where the titlebars of Explorer windows are rendered using without any theme, and causes the notification area to disappear</p>
+<img src=nature.png>
+<h2>Plus! da Vinci theme</h2>
+<p>Applies Windows Basic</p>
+<h2>Screen Savers</h2>
+<p>They all work fine</p>
