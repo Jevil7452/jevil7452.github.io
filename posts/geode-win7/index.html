@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Niko's website - Posts - Geode on Windows 7">
+		<meta name="author" content="Niko">
+		<title>Geode on Windows 7 - Niko's website</title>
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+	</head>
+	<!-- Site start -->
+	<body>
+		<div class="content">
+			<div class="center">
+				<h1>Geode on Windows 7</h1>
+				How to get the Geode mod loader working on Windows 7<br>
+				Note: I assume that you already have Geometry Dash running via the non-VxKex method
+			</div>
+			<h4>Step 1: Installing Geode</h4>
+			This part is simple. Just install Geode from their <a href="https://geode-sdk.org/install">website</a>.<br>
+			After installing it though, you'll only see this error:<br>
+			<img src="error.png" alt="Could not load Geode! Error code: 127"><br>
+			Follow the next steps to fix it
+			<h4>Step 2: Enabling VxKex</h4>
+			I have taken a look at this, and Geode.dll calls CreateFile2 which doesn't exist in Windows 7. It's possible to fix it using VxKex but if you do that, you'll see that Geode doesn't even try to load.<br>
+			This is because of how VxKex works, and how tools like Mega Hack and Geode use XInput1_4.dll to inject themselves, however that can be worked around.
+			<h4>Step 3: Redirecting XInput1_4 to something else</h4>
+			For this step, firstly rename XInput1_4.dll to something else, that has the same amount of characters. For example ZInput1_4.dll<br>
+			(Also, be sure to go to System32 and copy XInput1_3.dll to XInput1_4.dll if you haven't done so already)<br>
+			Afterwards, open libcocos2d.dll in CFF Explorer, navigate to the Import Table and change XInput1_4.dll to your DLL name.<br>
+			<img src="cffexplorer.png" alt="CFF Explorer showing the DLL you need to rename"><br>
+			Then, save the file. (You might need to save it in another folder then copy it into the Geometry Dash folder.
+			<h4>Enjoy!</h4>
+			<img src="geode.png" alt="Geode on Windows 7"><br>
+			<h4 style="color: red">Warning: Some mods might not work on Windows 7. Do not contact the mod developers for help in this case.</h4>
+	</body>
+</html>
