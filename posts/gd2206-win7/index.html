@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Niko's website - Posts - Geometry Dash 2.206 on Windows 7">
+		<meta name="author" content="Niko">
+		<title>Geometry Dash 2.206 on Windows 7 - Niko's website</title>
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+	</head>
+	<!-- Site start -->
+	<body>
+		<div class="content">
+			<div class="center">
+				<h1>Geometry Dash 2.206 on Windows 7</h1>
+				How to get the latest version of Geometry Dash on Windows 7, after RobTop silently dropped support for it<br>
+			</div>
+			<h4>Method 1: VxKex</h4>
+			This is a quick and dirty method, suitable only for those who don't use Mega Hack or Geode (that requires it's own steps to get working on Windows 7)<br>
+			<img src="vxkex.png" alt="The VxKex configuration dialog">
+			<h4>Method 2: Manual patching</h4>
+			This method is suitable for people who intend to use mods like Mega Hack or Geode<br>
+			<h4>Step 1: Acquiring XInput1_4.dll</h4>
+			The first issue you'll run into is the lack of a XInput1_4.dll file. Now, the fix to that is really simple, all you need to do is go to C:\Windows\system32, take the XInput1_3.dll file, and copy it to be called XInput1_4.dll. Put it in System32 if you plan to use Mega Hack or Geode, or put it in the Geometry Dash folder if you just plan to run Geometry Dash by itself.<br>
+			<img src="xinput14.png" alt="XInput1_4.dll in the Geometry Dash folder">
+			<h4>Step 2: Patching out the call to GetSystemTimePreciseAsFileTime</h4>
+			Now, that you have gotten XInput1_4.dll, you can't run the game just yet, you'll encounter an error message about the missing entry point GetSystemTimePreciseAsFileTime in KERNEL32.dll. Now, using Dependency Walker, you can see that the file that calls this function is UV.DLL.<br>
+			<img src="dependencywalker.png" alt="Dependency Walker"><br>
+			To patch it out, you can use a tool called <a href="https://ntcore.com/explorer-suite/">CFF Explorer</a>. Download it, and open UV.DLL in it. Now navigate to Import Table, find KERNEL32.dll in there and scroll down until you find GetSystemTimePreciseAsFileTime. Change it to GetSystemTimeAsFileTime. The function you need to change is highligted in the image.
+			<img src="cffexplorer.png" alt="CFF Explorer"><br>
+			After that, save the file. (You may need to save it somewhere else then move it into the Geometry Dash folder)
+			<h4>Enjoy!</h4>
+			<img src="gdwin7.png" alt="Geometry Dash (with Mega Hack) on Windows 7">
+	</body>
+</html>
