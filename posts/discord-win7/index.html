@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Niko's website - Posts - Discord on Windows 7">
+		<meta name="author" content="Niko">
+		<title>Discord on Windows 7 - Niko's website</title>
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+	</head>
+	<!-- Site start -->
+	<body>
+		<div class="content">
+			<div class="center">
+				<h1>Discord on Windows 7</h1>
+				How to get the latest version of the Discord client working on Windows 7<br>
+				You will need a Windows 10 VM/PC for this.<br>
+				You will also need VxKex installed.
+			</div>
+			<h3>On your Windows 7 PC</h3>
+			<h4>Step 1: Install 64-bit Discord 1.0.9034</h4>
+			This is the latest version of Discord to run on Windows 7 officially, and what the Windows 7/8.1 installer had, albeit 32-bit.<br>
+			You can download it from <a href="https://dl.discordapp.net/distro/app/stable/win/x64/1.0.9034/DiscordSetup.exe">here</a> or the Download Center.<br>
+			After that, just install it.<br>
+			<img src="Discord1.0.9034.png"><br>
+			<sub>Honestly, you could stop here, 1.0.9034 should keep working for the forseeable future</sub>
+			<h3>On your Windows 10 PC</h3>
+			<h4>Step 2: Install the latest 64-bit Discord version</h4>
+			You can download it from <a href="https://discord.com/api/downloads/distributions/app/installers/latest?channel=stable&platform=win&arch=x64">here</a><br>
+			At the time of writing, it is version 1.0.9154.<br>
+			Just install it on your Windows 10 PC.<br>
+			<h4>Step 3: Copy the app-1.0.xxxx folder to your Windows 7 PC</h4>
+			This folder stores all of Discord's actual app data.<br>
+			It's stored in %LOCALAPPDATA%\Discord<br>
+			Just copy it as a whole to your Windows 7 PC.
+			<h3>On your Windows 7 PC</h3>
+			<h4>Step 4: Replace Discord 1.0.9034 with whatever the latest is</h4>
+			Go to %LOCALAPPDATA%\Discord<br>
+			Do not delete app-1.0.9034, doing so will cause the updater to redownload it.<br>
+			Go into the app-1.0.9034 folder, and empty it out.<br>
+			Copy in the contents of the app-1.0.xxxx folder from the Windows 10 PC that you got with the newer version of Discord<br>
+			<h4>Step 5: Make it work</h4>
+			Now, to make it all work, edit Discord.exe with CFF Explorer and change the subsystem version to 6.1.<br>
+			Then, go up a folder and enable VxKex on Update.exe<br>
+			Now, just run it.<br>
+			<img src="Discord1.0.9156.png"><br>
+			<h3>Enjoy!</h3>
+	</body>
+</html>
