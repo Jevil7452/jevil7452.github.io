@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Niko's website - Posts - NXEngine-Evo on Windows XP x64">
+		<meta name="author" content="Niko">
+		<title>NXEngine-Evo on Windows XP x64 - Niko's website</title>
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+	</head>
+	<!-- Site start -->
+	<body>
+		<div class="content">
+			<div class="center">
+				<h1>NXEngine-Evo on Windows XP x64</h1>
+				Running a more capable Cave Story engine on Windows XP x64<br>
+			</div>
+			Firstly, install CFF Explorer if you don't have it already, as you'll need to patch some things within nx.exe<br>
+			After that, open nx.exe in CFF Explorer.<br>
+			The first thing you have to change is the subsystem version, from 6.0 to 5.2.<br>
+			To do that, go to NT Headers -> Optional Header and change the highlighted values to 5 and 2.<br>
+			<img src="subsystem.png" alt="Changing the subsystem version"><br>
+			Now, you can't just save and run it right away, as you'll only see this error.<br>
+			<img src="error.png" alt="GetDynamicTimeZoneInformation error"><br>
+			To fix that, you need to go to Import Directory, then find KERNEL32.dll.<br>
+			After you found it, find GetDynamicTimeZoneInformation and change that to GetTimeZoneInformation.<br>
+			<img src="import.png" alt="Changing GetDynamicTimeZoneInformation to GetTimeZoneInformation"><br>
+			And that's it!<br>
+			<img src="itworks.png" alt="NXEngine-evo 2.6.5 on Windows XP x64" width="1080"><br>
+			Fun fact: this was written entirely on XP x64.
+	</body>
+</html>
