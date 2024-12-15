@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Niko's website - Posts - TLS 1.1 and TLS 1.2 on XP x64">
+		<meta name="author" content="Niko">
+		<title>TLS 1.1 and TLS 1.2 on XP x64 - Niko's website</title>
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+	</head>
+	<!-- Site start -->
+	<body>
+		<div class="content">
+			<div class="center">
+				<h1>TLS 1.1 and TLS 1.2 on XP x64</h1>
+				Get your Windows XP x64 system to talk to more modern websites<br>
+			</div>
+			<b>Make sure your XP x64 system is fully up to date before starting this tutorial!</b>
+			For your convenience, it has been simplified to these four commands:<br><br>
+			<code>
+			reg delete "HKLM\SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\TLS1.1" /v "OSVersion" /f<br>
+			reg delete "HKLM\SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\TLS1.2" /v "OSVersion" /f<br>
+			reg delete "HKLM\SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\TLS1.1" /v "OSVersion" /f<br>
+			reg delete "HKLM\SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\TLS1.2" /v "OSVersion" /f<br>
+			</code><br>
+			After running these commands, you can now go to Internet Options, Advanced, scroll down and enable TLS 1.1 and 1.2 like you would in any modern Windows version.<br>
+			<img src="tls.png" alt="TLS 1.1 and 1.2 on Windows XP x64">
+	</body>
+</html>
