@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Niko's website - Posts - Steam on Windows 7">
+		<meta name="author" content="Niko">
+		<title>Steam on Windows 7 - Niko's website</title>
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+	</head>
+	<!-- Navigation bar start -->
+	<div class="topnav">
+		<a href="/index.html">Home</a>
+		<a href="/posts/index.html">Posts</a>
+		<a href="/osstuff/index.html">OS Pages</a>
+		<a href="/downloads/index.html">Download Center</a>
+		<a href="/videos/index.html">Videos</a>
+		<a href="/about.html">About</a>
+	</div>
+	<hr>
+	<!-- Navigation bar end -->
+	<!-- Site start -->
+	<body>
+		<div class="content">
+			<div class="center">
+				<h1>Steam on Windows 7</h1>
+				Continuing to use Steam after Valve's EOL<br>
+			</div>
+			<h4>Step 1: Installing Steam</h4>
+			As the name suggests, the first step is to officially install Steam from Valve's site.<br>
+			After letting it download and install everything it needs to though, you'll only see an error about OS compatibility:<br>
+			<img src="error.png" alt="Steam OS incompatibility error"><br>
+			This can be fixed by telling Steam to download an older client, the last Windows 7 one.
+			<h4 style="color: red">You may be tempted to just enable VxKex, but DO NOT DO IT! It will break running some games, some can be fixed with VxKex, some can't. The last Windows 7 client uses the latest Steam API anyways, so there's no reason to do so.</h4>
+			<h4>Step 2: Downloading the Windows 7 client</h4>
+			Open a command prompt window in the Steam folder, and run the following command:<br>
+			<code>steam -forcesteamupdate -forcepackagedownload -overridepackageurl http://web.archive.org/web/20240918104445if_/media.steampowered.com/client -exitsteam -textmode</code><br>
+			(you may need to run <code>steam -clearbeta</code> beforehand)<br>
+			You will see a client update window, just like before. This time, it will download the Windows 7 client.<br>
+			After that, you can open Steam and see it works.<br>
+			<img src="steam-2024-09.png" alt="Steam client from 2024/09/18">
+			<!-- Steam acts weird with this client, unused and commented out section until I figure out how to reliably download it
+			<h4>Step 3: Updating the client</h4>
+			As it turns out, this isn't the true last client that can run on Windows 7. There's still a newer client that can run.<br>
+			To install it, close Steam, follow the same steps as before, but use this command instead:<br>
+			<code>steam -forcesteamupdate -forcepackagedownload -overridepackageurl http://web.archive.org/web/20241107150153if_/media.steampowered.com/client -exitsteam -textmode
+			End of comment -->
+			<h4>Step 3: Disabling the updater</h3>
+			Although Steam won't update itself to a broken version, I always like to do this on any client other than the latest one. Besides, it's not going to do much good here on Windows 7.<br>
+			To do this, go to the Steam installation folder and create a file called Steam.cfg with the following contents:<br>
+			<code>BootStrapperInhibitAll=enable</code><br>
+			<code>BootStrapperForceSelfUpdate=disable</code><br>
+			<h4>Step 4 (optional but recommended): Disabling GPU acceleration</h4>
+			If your Steam client takes a long time to actually become responsive, you will need to disable GPU acceleration.<br>
+			Go to Steam > Settings, Interface and disable "Enable GPU accelerated rendering in web views (requires restart)"
+			<h2>And that's it! Enjoy!</h2>
+			Thanks to <a href="https://blog.lightwo.net/steam-client-downgrades-survival-kit.html">lightwo's blog</a> for some information about this.
+	</body>
+</html>
