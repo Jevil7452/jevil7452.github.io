@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Niko's website - Posts - Function Replacements">
+		<meta name="author" content="Niko">
+		<title>Function Replacements - Niko's website</title>
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+	</head>
+	<!-- Navigation bar start -->
+	<div class="topnav">
+		<a href="/index.html">Home</a>
+		<a href="/posts/index.html">Posts</a>
+		<a href="/osstuff/index.html">OS Pages</a>
+		<a href="/downloads/index.html">Download Center</a>
+		<a href="/videos/index.html">Videos</a>
+		<a href="/about.html">About</a>
+	</div>
+	<hr>
+	<!-- Navigation bar end -->
+	<!-- Site start -->
+	<body>
+		<div class="content">
+			<div class="center">
+				<h1>Function Replacements</h1>
+				A general list of functions that you can try replacing in order to get an application working<br>
+				(no guarantees it'll work)<br>
+			</div>
+			<h4><code>advapi32.dll</code></h4>
+				<li><code>CredReadA</code> -> <code>CredFree</code></li>
+				<li><code>CredWriteA</code> -> <code>CredFree</code></li>
+				<li><code>EventWriteEx</code> -> <code>EventWrite</code></li>
+			<h4><code>cfgmgr32.dll</code></h4>
+				<li><code>CM_Register_Notification</code> -> <code>CMP_RegisterNotification</code></li>
+			<h4><code>kernel32.dll</code></h4>
+				<li><code>CopyFile2</code> -> <code>CopyFileW</code></li>
+				<li><code>GetCurrentThreadStackLimits</code> -> <code>GetCurrentThread</code></li>
+				<li><code>GetDynamicTimeZoneInformation</code> -> <code>GetTimeZoneInformation</code></li>
+				<li><code>GetSystemTimePreciseAsFileTime</code> -> <code>GetSystemTimeAsFileTime</code></li>
+				<li><code>IsWow64Process2</code> -> <code>IsWow64Process</code></li>
+				<li><code>K32EnumProcessModules</code> -> <code>GetProcAddress</code></li>
+				<li><code>K32GetModuleFileNameExA</code> -> <code>GetModuleFileNameA</code></li>
+				<li><code>LoadPackagedLibrary</code> -> <code>LoadLibraryExW</code></li>
+				<li><code>RaiseFailFastException</code> -> <code>RaiseException</code></li>
+				<li><code>ResolveDelayLoadedAPI</code> -> <code>ActivateActCtx</code></li>
+				<li><code>SetWaitableTimerEx</code> -> <code>SetWaitableTimer</code></li>
+			<h4><code>ndis.sys</code></h4>
+				<li><code>NdisSetCoalescableTimerObject</code> -> <code>NdisSetTimerObject</code></li>
+			<h4><code>ntdll.dll</code></h4>
+				<li><code>NtReleaseKeyedEvent</code> -> <code>NtReleaseSemaphore</code></li>
+				<li><code>NtWaitForKeyedEvent</code> -> <code>NtWaitHighEventPair</code></li>
+			<h4><code>ntoskrnl.exe</code><h4>
+				<li><code>KeQueryLogicalProcessorRelationship</code> -> <code>KeQueryMaximumProcessorCount</code></li>
+				<li><code>strnlen</code> -> <code>strlen</code></li>
+			<h4><code>powrprof.dll</code></h4>
+				<li><code>PowerDeterminePlatformRoleEx</code> -> <code>PowerDeterminePlatformRole</code></li>
+			<h4><code>ulib.dll</code></h4>
+				<li><code>?DebugDump@OBJECT@@UEBAXE@Z</code> -> <code>?Log@MESSAGE@@QEAAEPEBDZZ</code></li>
+	</body>
+</html>
